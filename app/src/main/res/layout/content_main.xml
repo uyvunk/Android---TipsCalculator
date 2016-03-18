@@ -39,7 +39,7 @@
         android:layout_below="@+id/lbl_app_name"
         android:layout_alignParentRight="true"
         android:padding="5dp"
-        android:textSize="20dp" />
+        android:textSize="20dp"/>
 
     <TextView
         android:id="@+id/lbl_num_person"
