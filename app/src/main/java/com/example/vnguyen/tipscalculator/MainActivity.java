@@ -17,36 +17,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     public void calculateTips(View view) {
@@ -56,28 +26,33 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             double inTotal = Double.parseDouble(((EditText) findViewById(R.id.in_total)).getText().toString());
-            double inNumPerson = Double.parseDouble(((EditText) findViewById(R.id.in_num_person)).getText().toString());
+            int inNumPerson = (int) Double.parseDouble(((EditText) findViewById(R.id.in_num_person)).getText().toString());
             double inTipPercent = Double.parseDouble(((EditText) findViewById(R.id.in_tip_percent)).getText().toString());
 
             double tipResult, totalResult, billResult;
-            if (inNumPerson <= 0 || inTotal <= 0 || inTipPercent < 0) {
+            if (inNumPerson < 1 || inTotal <= 0 || inTipPercent < 0) {
                 tipResultTV.setText("Invalid values at Total, Number of person, or Tip percentage");
                 totalResultTV.setText("Please try again");
             } else {
                 billResult = inTotal / inNumPerson;
                 tipResult = billResult * (inTipPercent / 100);
                 totalResult = billResult + tipResult;
+                // reset the number of person
+                ((EditText) findViewById(R.id.in_num_person)).setText(Integer.toString(inNumPerson));
                 // display the output
                 TextView resultText = (TextView) findViewById(R.id.lbl_result);
-                resultText.setText(getString(R.string.result));
+                if (inNumPerson == 1)
+                    resultText.setText(getString(R.string.resultSingle));
+                else
+                    resultText.setText(getString(R.string.resultMulti));
 
-                String billResultText = String.format("\t\t$%.2f for Food", billResult);
+                String billResultText = String.format("$%.2f", billResult);
                 billResultTV.setText(billResultText);
 
-                String tipResultText = String.format("\t\t$%.2f for Tip", tipResult);
+                String tipResultText = String.format("Tip:\t\t$%.2f", tipResult);
                 tipResultTV.setText(tipResultText);
 
-                String totalResultText = String.format("\t\t$%.2f total", totalResult);
+                String totalResultText = String.format("Total:\t\t$%.2f", totalResult);
                 totalResultTV.setText(totalResultText);
             }
         } catch (NullPointerException e) {

@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Tips Calculator</string>
     <string name="action_settings">Settings</string>
-    <string name="total">Total $</string>
-    <string name="person_to_split">Person(s) to split</string>
+    <string name="total">Total ($)</string>
+    <string name="person_to_split">Split</string>
+    <string name="default_split">1</string>
     <string name="tip">Tip (%)</string>
-    <string name="result">You pay:</string>
+    <string name="resultMulti">Each person pays:</string>
+    <string name="resultSingle">You pay:</string>
 </resources>
