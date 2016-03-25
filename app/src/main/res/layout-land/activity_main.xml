@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/lbl_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="@color/title_color"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lbl_app_name">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_span="1"
+                android:layout_weight="0.5">
+
+                <TextView
+                    android:id="@+id/lbl_total"
+                    android:gravity="left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="@string/total" />
+
+                <EditText
+                    android:id="@+id/in_total"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="flagNoExtractUi"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:padding="5dp"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_span="1"
+                android:layout_weight="0.5">
+
+                <TextView
+                    android:id="@+id/lbl_num_person"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="@string/person_to_split"/>
+
+                <EditText
+                    android:id="@+id/in_num_person"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="flagNoExtractUi"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:padding="5dp"
+                    android:text="@string/default_split"
+                    android:inputType="number" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_span="1"
+                android:layout_weight="0.5">
+
+                <TextView
+                    android:id="@+id/lbl_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="@string/tip"/>
+
+                <EditText
+                    android:id="@+id/in_tip_percent"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="flagNoExtractUi"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:padding="5dp"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_span="1"
+                android:layout_weight="0.5">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="@string/button"
+                    android:onClick="calculateTips"
+                    android:padding="20dp"
+                    android:layout_margin="10dp"/>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/lbl_result"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/title_color"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_span="1"
+                android:layout_weight="1" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/lbl_bill_result"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/title_color"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_span="1"
+                android:layout_weight="0.33" />
+
+            <TextView
+                android:id="@+id/lbl_tip_result"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/title_color"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_span="1"
+                android:layout_weight="0.33" />
+
+            <TextView
+                android:id="@+id/lbl_total_result"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/title_color"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                android:layout_span="1"
+                android:layout_weight="0.33" />
+        </TableRow>
+
+    </TableLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+    </com.google.android.gms.ads.AdView>
+
+</RelativeLayout>

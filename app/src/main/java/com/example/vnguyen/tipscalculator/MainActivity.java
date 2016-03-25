@@ -27,10 +27,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculateTips(View view) {
-        TextView billResultTV = (TextView) findViewById(R.id.lbl_bill_result);
-        TextView tipResultTV = (TextView) findViewById(R.id.lbl_tip_result);
-        TextView totalResultTV = (TextView) findViewById(R.id.lbl_total_result);
-
         try {
             double inTotal = Double.parseDouble(((EditText) findViewById(R.id.in_total)).getText().toString());
             int inNumPerson = (int) Double.parseDouble(((EditText) findViewById(R.id.in_num_person)).getText().toString());
@@ -38,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
             double tipResult, totalResult, billResult;
             if (inNumPerson < 1 || inTotal <= 0 || inTipPercent < 0) {
-                tipResultTV.setText("Invalid values at Total, Number of person, or Tip percentage");
-                totalResultTV.setText("Please try again");
+                displayError();
             } else {
                 billResult = inTotal / inNumPerson;
                 tipResult = billResult * (inTipPercent / 100);
@@ -48,12 +43,16 @@ public class MainActivity extends AppCompatActivity {
                 ((EditText) findViewById(R.id.in_num_person)).setText(Integer.toString(inNumPerson));
                 // display the output
                 TextView resultText = (TextView) findViewById(R.id.lbl_result);
+                TextView billResultTV = (TextView) findViewById(R.id.lbl_bill_result);
+                TextView tipResultTV = (TextView) findViewById(R.id.lbl_tip_result);
+                TextView totalResultTV = (TextView) findViewById(R.id.lbl_total_result);
+
                 if (inNumPerson == 1)
                     resultText.setText(getString(R.string.resultSingle));
                 else
                     resultText.setText(getString(R.string.resultMulti));
 
-                String billResultText = String.format("$%.2f", billResult);
+                String billResultText = String.format("Bill:\t\t$%.2f", billResult);
                 billResultTV.setText(billResultText);
 
                 String tipResultText = String.format("Tip:\t\t$%.2f", tipResult);
@@ -62,12 +61,8 @@ public class MainActivity extends AppCompatActivity {
                 String totalResultText = String.format("Total:\t\t$%.2f", totalResult);
                 totalResultTV.setText(totalResultText);
             }
-        } catch (NullPointerException e) {
-            tipResultTV.setText("Invalid values at Total, Number of person, or Tip percentage");
-            totalResultTV.setText("Please try again");
-        } catch (NumberFormatException n) {
-            tipResultTV.setText("Invalid values at Total, Number of person, or Tip percentage");
-            totalResultTV.setText("Please try again");
+        } catch (Exception e) {
+            displayError();
         }
     }
 
@@ -102,5 +97,18 @@ public class MainActivity extends AppCompatActivity {
         InputMethodManager inputMethodManager = (InputMethodManager)  activity
                 .getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+    }
+
+    private void displayError() {
+        TextView billResultTV = (TextView) findViewById(R.id.lbl_bill_result);
+        TextView tipResultTV = (TextView) findViewById(R.id.lbl_tip_result);
+        TextView totalResultTV = (TextView) findViewById(R.id.lbl_total_result);
+        TextView resultText = (TextView) findViewById(R.id.lbl_result);
+        // clear all the TextView
+        resultText.setText("Invalid values at Total, " +
+                "Number of person, or Tip percentage. Please try again");
+        billResultTV.setText("");
+        tipResultTV.setText("");
+        totalResultTV.setText("");
     }
 }

@@ -17,40 +17,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
-        android:elegantTextHeight="false"
-        android:textColor="#fe0202"
-        android:textSize="25dp"
+        android:textColor="@color/title_color"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/lbl_total"
-        android:gravity="left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lbl_app_name"
         android:text="@string/total"
-        android:textSize="20dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <EditText
         android:id="@+id/in_total"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:textSize="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:layout_below="@+id/lbl_total"
         android:layout_alignParentLeft="true"
         android:inputType="numberDecimal" />
 
     <TextView
         android:id="@+id/lbl_num_person"
-        android:gravity="left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/in_total"
         android:text="@string/person_to_split"
-        android:textSize="20dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <EditText
         android:id="@+id/in_num_person"
@@ -58,27 +55,25 @@
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:text="@string/default_split"
-        android:textSize="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:layout_below="@+id/lbl_num_person"
         android:layout_alignParentLeft="true"
         android:inputType="number" />
 
     <TextView
         android:id="@+id/lbl_tip"
-        android:gravity="left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/in_num_person"
         android:text="@string/tip"
-        android:textSize="20dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <EditText
         android:id="@+id/in_tip_percent"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:textSize="20dp"
-        android:nestedScrollingEnabled="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:layout_below="@+id/lbl_tip"
         android:layout_alignParentLeft="true"
         android:inputType="numberDecimal" />
@@ -89,7 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:singleLine="true"
-        android:text="Calculate"
+        android:text="@string/button"
         android:onClick="calculateTips"
         android:layout_below="@+id/in_tip_percent"
         android:layout_centerHorizontal="true"
@@ -102,9 +97,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/calculate_button"
         android:layout_alignRight="@id/calculate_button"
-        android:layout_gravity="left"
-        android:textSize="20dp"
-        android:textColor="#fe0101"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/title_color"/>
 
     <TextView
         android:id="@+id/lbl_bill_result"
@@ -112,9 +106,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/lbl_result"
         android:layout_alignRight="@id/lbl_result"
-        android:layout_gravity="left"
-        android:textSize="20dp"
-        android:textColor="#fe0101" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/title_color" />
 
     <TextView
         android:id="@+id/lbl_tip_result"
@@ -122,9 +115,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/lbl_bill_result"
         android:layout_alignRight="@id/lbl_bill_result"
-        android:layout_gravity="left"
-        android:textSize="20dp"
-        android:textColor="#fe0101"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/title_color"/>
 
     <TextView
         android:id="@+id/lbl_total_result"
@@ -132,9 +124,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/lbl_tip_result"
         android:layout_alignRight="@id/lbl_tip_result"
-        android:layout_gravity="left"
-        android:textSize="20dp"
-        android:textColor="#fe0101"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/title_color"
         android:textStyle="bold"/>
 
     <com.google.android.gms.ads.AdView
