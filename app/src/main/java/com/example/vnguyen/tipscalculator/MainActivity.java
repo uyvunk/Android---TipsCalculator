@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -110,5 +112,15 @@ public class MainActivity extends AppCompatActivity {
         billResultTV.setText("");
         tipResultTV.setText("");
         totalResultTV.setText("");
+    }
+
+    public void getTipPercent(View view) {
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radio_group);
+        int checkedRadioButtonID = radioGroup.getCheckedRadioButtonId();
+        RadioButton checkedRadioButton = (RadioButton) findViewById(checkedRadioButtonID);
+        String tipVal = checkedRadioButton.getText().toString().replace("%","");
+        // set the checked value to the tip EditText
+        EditText et = (EditText) findViewById(R.id.in_tip_percent);
+        et.setText(tipVal);
     }
 }

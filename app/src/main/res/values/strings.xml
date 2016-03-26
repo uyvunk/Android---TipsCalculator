@@ -5,6 +5,9 @@
     <string name="person_to_split">Split</string>
     <string name="default_split">1</string>
     <string name="tip">Tip (%)</string>
+    <string name="radio_tip_low">5%</string>
+    <string name="radio_tip_med">10%</string>
+    <string name="radio_tip_hi">15%</string>
     <string name="button">Calculate</string>
     <string name="resultMulti">Each person pays:</string>
     <string name="resultSingle">You pay:</string>

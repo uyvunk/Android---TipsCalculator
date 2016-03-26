@@ -92,7 +92,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_span="1"
-                android:layout_weight="0.5">
+                android:layout_weight="0.7">
 
                 <TextView
                     android:id="@+id/lbl_tip"
@@ -101,14 +101,66 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:text="@string/tip"/>
 
-                <EditText
-                    android:id="@+id/in_tip_percent"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="flagNoExtractUi"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:padding="5dp"
-                    android:inputType="numberDecimal" />
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <RadioGroup
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_weight="0.6"
+                            android:layout_span="1"
+                            android:id="@+id/radio_group">
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/radioButton_low"
+                                android:checked="false"
+                                android:text="@string/radio_tip_low"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:onClick="getTipPercent" />
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/radioButton_med"
+                                android:checked="false"
+                                android:text="@string/radio_tip_med"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:onClick="getTipPercent" />
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/radioButton_hi"
+                                android:checked="false"
+                                android:text="@string/radio_tip_hi"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:onClick="getTipPercent" />
+                        </RadioGroup>
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="flagNoExtractUi"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:padding="5dp"
+                            android:inputType="numberDecimal"
+                            android:layout_span="1"
+                            android:layout_weight="0.4"
+                            android:id="@+id/in_tip_percent" />
+
+                    </TableRow>
+                </TableLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -116,7 +168,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_span="1"
-                android:layout_weight="0.5">
+                android:layout_weight="0.3">
 
                 <Button
                     android:id="@+id/button"
